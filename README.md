@@ -1,2 +1,4 @@
-# HelloWorld
-a collection of interview questions:heart:
+# Little Project
+
+- a collection of projects
+- some practices
