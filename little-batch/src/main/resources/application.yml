@@ -1,1 +1,7 @@
+batch:
+
+
+spring:
+  datasource:
+    druid:
 
