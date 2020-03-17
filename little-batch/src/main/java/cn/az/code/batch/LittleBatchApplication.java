@@ -14,12 +14,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class LittleBatchApplication {
 
     public static void main(String[] args) {
-        SpringApplication application = new SpringApplication(LittleBatchApplication.class);
-        // none web project
-        application.setWebApplicationType(WebApplicationType.NONE);
-        log.info("{} is running", LittleBatchApplication.class.getName());
-        new BatchThreadAction().execute();
-        application.run(args);
+        BatchThreadAction batchAction = new BatchThreadAction();
+        log.info("{} is running", BatchThreadAction.class.getName());
+        batchAction.execute();
     }
 
 }

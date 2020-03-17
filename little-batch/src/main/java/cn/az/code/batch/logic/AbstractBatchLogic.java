@@ -9,10 +9,10 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public abstract class AbstractBatchLogic implements Runnable{
+public abstract class AbstractBatchLogic extends Thread{
 
-    private boolean stopFlag = false;
+    protected boolean stopFlag = false;
 
-    private boolean isWorking = false;
+    protected boolean isWorking = false;
 
 }

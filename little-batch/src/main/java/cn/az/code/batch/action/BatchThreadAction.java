@@ -17,8 +17,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 @Slf4j
 public class BatchThreadAction {
 
-    public static Map<String, AbstractBatchLogic> batchLogicMap = new LinkedHashMap<>();
-
+    public static Map<String, Thread> batchLogicMap = new LinkedHashMap<>();
 
     public void execute() {
         String functionName = BatchThreadAction.class.getName() + "execute()";
@@ -27,7 +26,7 @@ public class BatchThreadAction {
 
         try {
             AbstractBatchLogic batchLogic = new MainControlLogic();
-            batchLogicMap.put("main-control", batchLogic);
+            batchLogicMap.put(batchLogic.getClass().getName(), batchLogic);
             executor.execute(batchLogic);
         } catch (Exception e) {
             log.error("err occurred in function : " + functionName, e);

@@ -1,7 +1,15 @@
-batch:
-
-
 spring:
   datasource:
     druid:
+      url: jdbc:mysql://127.0.0.1:3306/batch
+      username: root
+      password: azusa520
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+  global-config:
+    banner: false
+  configuration:
+    default-enum-type-handler: com.baomidou.mybatisplus.extension.handlers.MybatisEnumTypeHandler
+
 
