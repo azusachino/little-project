@@ -1,5 +1,6 @@
 package cn.az.code.batch.action;
 
+import cn.az.code.batch.concurrent.DelegateThreadFactory;
 import cn.az.code.batch.logic.AbstractBatchLogic;
 import cn.az.code.batch.logic.MainControlLogic;
 import cn.hutool.core.thread.ThreadUtil;
@@ -8,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 
 /**
@@ -21,13 +23,12 @@ public class BatchThreadAction {
 
     public void execute() {
         String functionName = BatchThreadAction.class.getName() + "execute()";
-
-        Executor executor = new ScheduledThreadPoolExecutor(10, ThreadUtil.newNamedThreadFactory("batch-%d", true));
+        DelegateThreadFactory threadFactory = new DelegateThreadFactory(ThreadUtil.newNamedThreadFactory("batch-%d", true), batchLogicMap);
+        ExecutorService service = new ScheduledThreadPoolExecutor(10, threadFactory);
 
         try {
             AbstractBatchLogic batchLogic = new MainControlLogic();
-            batchLogicMap.put(batchLogic.getClass().getName(), batchLogic);
-            executor.execute(batchLogic);
+            service.submit(batchLogic);
         } catch (Exception e) {
             log.error("err occurred in function : " + functionName, e);
         }
