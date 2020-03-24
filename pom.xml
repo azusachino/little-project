@@ -10,12 +10,19 @@
     <relativePath/>
   </parent>
 
-  <groupId>cn.az.code</groupId>
+  <groupId>cn.az.project</groupId>
   <artifactId>little-project</artifactId>
-  <version>1.0.0</version>
+  <version>0.1.0</version>
   <packaging>pom</packaging>
   <name>little-project</name>
   <description>my little boot projects</description>
+
+  <modules>
+    <module>csv-batch</module>
+    <module>little-batch</module>
+    <module>little-coupon</module>
+    <module>little-merchant</module>
+  </modules>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -28,11 +35,17 @@
     <guava.version>28.2-jre</guava.version>
     <commons-io.version>2.6</commons-io.version>
     <commons-lang3.version>3.9</commons-lang3.version>
-    <commons-codec.version>1.14</commons-codec.version>
+    <commons-code.version>1.14</commons-code.version>
+    <hadoop.version>2.5.0.RELEASE</hadoop.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>org.springframework.data</groupId>
+        <artifactId>spring-data-hadoop-hbase</artifactId>
+        <version>${hadoop.version}</version>
+      </dependency>
       <dependency>
         <groupId>com.baomidou</groupId>
         <artifactId>mybatis-plus-boot-starter</artifactId>
@@ -96,5 +109,4 @@
       </plugin>
     </plugins>
   </build>
-
 </project>
