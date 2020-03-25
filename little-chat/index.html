@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div class="container">
+  <div>Send Message</div>
+  <label>
+    <input type="text" id="msgContent"/>
+  </label>
+  <input type="button" value="SEND" onclick="CHAT.chat()">
+  <br/>
+  <div>Receive Message</div>
+  <div id="receiveMsg" style="background: gainsboro"></div>
+</div>
+
+<script>
+    window.CHAT = {
+        socket: null,
+        init: function () {
+            if (window.WebSocket) {
+                CHAT.socket = new WebSocket("ws://127.0.0.1:8088/ws")
+                CHAT.socket.onopen = () => {
+                    console.log("starting to connect ws")
+                }
+                CHAT.socket.onclose = () => {
+                    console.log("closing ws")
+                }
+                CHAT.socket.onerror = () => {
+                    console.log("error happened")
+                }
+                CHAT.socket.onmessage = (e) => {
+                    console.log("receiving msg: " + e)
+                    let receiveMsg = document.getElementById("receiveMsg")
+                    let html = receiveMsg.innerHTML
+                    receiveMsg.innerHTML = html + "<br/>" + e.data
+                }
+            } else {
+                alert("not supporting web socket")
+            }
+        },
+        chat: function () {
+            let msg = document.getElementById("msgContent")
+            CHAT.socket.send(msg.value)
+        }
+    }
+
+    CHAT.init()
+</script>
+</body>
+</html>
