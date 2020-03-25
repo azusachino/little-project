@@ -11,9 +11,6 @@
   </parent>
 
   <artifactId>little-merchant</artifactId>
-  <version>0.0.1</version>
-  <name>little-merchant</name>
-  <description>merchant part for card project</description>
 
   <dependencies>
     <dependency>

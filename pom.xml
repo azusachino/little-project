@@ -22,6 +22,7 @@
     <module>little-batch</module>
     <module>little-coupon</module>
     <module>little-merchant</module>
+    <module>hello-netty</module>
   </modules>
 
   <properties>
