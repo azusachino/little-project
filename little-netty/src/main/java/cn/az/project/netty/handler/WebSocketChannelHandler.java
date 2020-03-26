@@ -20,14 +20,14 @@ import java.time.LocalDateTime;
 @Slf4j
 public class WebSocketChannelHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
 
-    private static ChannelGroup clients = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
+    private static ChannelGroup CLIENTS = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg) {
         String content = msg.text();
         log.debug("receiving msg: {}", content);
         // or using for each
-        clients.writeAndFlush(new TextWebSocketFrame("[Time: ]" + LocalDateTime.now() + " [msg: ]" + content));
+        CLIENTS.writeAndFlush(new TextWebSocketFrame("[Time: ]" + LocalDateTime.now() + " [msg: ]" + content));
     }
 
     /**
@@ -37,11 +37,12 @@ public class WebSocketChannelHandler extends SimpleChannelInboundHandler<TextWeb
      */
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) {
-        clients.add(ctx.channel());
+        CLIENTS.add(ctx.channel());
     }
 
     @Override
     public void handlerRemoved(ChannelHandlerContext ctx) {
         log.debug("removing client {} from clients", ctx.channel().id().asLongText());
+        CLIENTS.remove(ctx.channel());
     }
 }

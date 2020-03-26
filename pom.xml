@@ -18,18 +18,19 @@
   <description>my little boot projects</description>
 
   <modules>
-    <module>csv-batch</module>
+    <module>little-csv</module>
     <module>little-batch</module>
     <module>little-coupon</module>
     <module>little-merchant</module>
-    <module>hello-netty</module>
+    <module>little-netty</module>
     <module>little-muxin</module>
   </modules>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.version>1.8</java.version>
+    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.source>11</maven.compiler.source>
     <mybatisplus.version>3.3.0</mybatisplus.version>
     <druid.version>1.1.20</druid.version>
     <fastjson.version>1.2.62</fastjson.version>
@@ -114,10 +115,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
-        </configuration>
       </plugin>
     </plugins>
   </build>

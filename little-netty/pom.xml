@@ -10,7 +10,7 @@
     <version>0.1.0</version>
   </parent>
 
-  <artifactId>hello-netty</artifactId>
+  <artifactId>little-netty</artifactId>
 
   <dependencies>
     <dependency>

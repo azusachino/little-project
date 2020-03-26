@@ -1,5 +1,6 @@
 package cn.az.project.netty.initializer;
 
+import cn.az.project.netty.handler.WebSocketChannelHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
@@ -33,6 +34,6 @@ public class WebSocketServerInitializer extends ChannelInitializer<SocketChannel
         // for web socket, data transferred by frames
         cp.addLast(new WebSocketServerProtocolHandler("/ws"));
 
-        cp.addLast(new WebSocketServerInitializer());
+        cp.addLast(new WebSocketChannelHandler());
     }
 }

@@ -37,7 +37,4 @@ public class WebSocketServer {
         return SingletonServer.INSTANCE;
     }
 
-    public static void main(String[] args) {
-
-    }
 }
