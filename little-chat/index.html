@@ -28,8 +28,9 @@
                 CHAT.socket.onclose = () => {
                     console.log("closing ws")
                 }
-                CHAT.socket.onerror = () => {
-                    console.log("error happened")
+                CHAT.socket.onerror = (e) => {
+                    console.log("error happened:")
+                    console.error(e)
                 }
                 CHAT.socket.onmessage = (e) => {
                     console.log("receiving msg: " + e)

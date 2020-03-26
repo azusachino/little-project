@@ -23,6 +23,7 @@
     <module>little-coupon</module>
     <module>little-merchant</module>
     <module>hello-netty</module>
+    <module>little-muxin</module>
   </modules>
 
   <properties>
@@ -53,8 +54,18 @@
         <version>${mybatisplus.version}</version>
       </dependency>
       <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-generator</artifactId>
+        <version>${mybatisplus.version}</version>
+      </dependency>
+      <dependency>
         <groupId>cn.hutool</groupId>
         <artifactId>hutool-all</artifactId>
+        <version>${hutool.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>cn.hutool</groupId>
+        <artifactId>hutool-core</artifactId>
         <version>${hutool.version}</version>
       </dependency>
       <dependency>

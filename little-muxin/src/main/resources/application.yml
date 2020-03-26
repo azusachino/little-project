@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: little-muxin
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  profiles:
+    active: dev
+
+server:
+  port: 8080
+mybatis-plus:
+  configuration:
+    default-enum-type-handler: com.baomidou.mybatisplus.extension.handlers.MybatisEnumTypeHandler
+  global-config:
+    db-config:
+      id-type: id_worker_str
+    banner: false
+  type-aliases-package: cn.az.project.muxin.entity
+
+logging:
+  level:
+    com.baomidou: debug
+    org.springframework: info
+    cn.az.project: info
