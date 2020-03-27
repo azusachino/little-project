@@ -6,11 +6,13 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import org.springframework.stereotype.Component;
 
 /**
  * @author az
  * @since 2020-03-26
  */
+@Component
 public class WebSocketServer {
 
     private ServerBootstrap server;
