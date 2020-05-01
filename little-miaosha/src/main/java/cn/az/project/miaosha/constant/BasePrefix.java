@@ -5,9 +5,9 @@ package cn.az.project.miaosha.constant;
  */
 public abstract class BasePrefix implements KeyPrefix {
 
-    private int expireSeconds;
+    private final int expireSeconds;
 
-    private String prefix;
+    private final String prefix;
 
     public BasePrefix(String prefix) {//0代表永不过期
         this(0, prefix);

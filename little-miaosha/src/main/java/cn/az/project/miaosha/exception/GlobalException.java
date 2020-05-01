@@ -10,7 +10,7 @@ public class GlobalException extends RuntimeException {
 
     private static final long serialVersionUID = 1845302575113494136L;
 
-    private CodeMessage codeMessage;
+    private final CodeMessage codeMessage;
 
     public GlobalException(CodeMessage codeMessage) {
         super(codeMessage.getMessage());

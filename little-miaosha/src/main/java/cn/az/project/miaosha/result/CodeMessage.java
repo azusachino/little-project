@@ -9,7 +9,7 @@ import java.util.Optional;
  * The enum Code message.
  *
  * @author az
- * @since 2020 -04-13
+ * @since 2020-04-13
  */
 @Getter
 @AllArgsConstructor
@@ -27,6 +27,10 @@ public enum CodeMessage {
      * Bind error code message.
      */
     BIND_ERROR(500101, "参数校验异常"),
+
+    REQUEST_ILLEGAL(500102, "请求非法"),
+
+    ACCESS_LIMIT_REACHED(500104, "访问太频繁！"),
     /**
      * Session error code message.
      */
@@ -50,10 +54,18 @@ public enum CodeMessage {
     /**
      * Password error code message.
      */
-    PASSWORD_ERROR(500215, "密码错误");
+    PASSWORD_ERROR(500215, "密码错误"),
 
-    private Integer code;
-    private String message;
+    //订单模块 5004XX
+    ORDER_NOT_EXIST(500400, "订单不存在"),
+
+    //秒杀模块 5005XX
+    MIAOSHA_OVER(500500, "商品已经秒杀完毕"),
+    MIAOSHA_AGAIN(500501, "不能重复秒杀"),
+    MIAOSHA_FAIL(500502, "秒杀失败");
+
+    private final Integer code;
+    private final String message;
 
     public static Optional<String> of(int code) {
         for (CodeMessage cm : values()) {

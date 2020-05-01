@@ -24,7 +24,7 @@ public class BeanUtil extends BeanUtils {
         try {
             return Optional.of(OM.writeValueAsString(t));
         } catch (Exception e) {
-            log.error(e.getLocalizedMessage(), e);
+            log.error(e.getMessage(), e);
         }
         return Optional.empty();
     }
@@ -36,7 +36,7 @@ public class BeanUtil extends BeanUtils {
         try {
             return Optional.of(OM.readValue(str, clazz));
         } catch (Exception e) {
-            log.error(e.getLocalizedMessage(), e);
+            log.error(e.getMessage(), e);
         }
         return Optional.empty();
     }

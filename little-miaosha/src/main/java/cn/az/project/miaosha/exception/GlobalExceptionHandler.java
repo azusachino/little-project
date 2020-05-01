@@ -19,7 +19,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)
     public Result<String> exceptionHandler(HttpServletRequest req, Exception e) {
-        log.error(e.getLocalizedMessage(), e);
+        log.error(e.getMessage(), e);
         if (e instanceof GlobalException) {
             return Result.error(((GlobalException) e).getCodeMessage());
         } else if (e instanceof BindException) {

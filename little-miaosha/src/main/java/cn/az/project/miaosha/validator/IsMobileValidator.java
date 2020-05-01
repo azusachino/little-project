@@ -14,8 +14,6 @@ public class IsMobileValidator implements ConstraintValidator<IsMobile, String> 
     private boolean required = false;
 
     /**
-     * Initializes the validator in preparation for
-     * {@link #isValid(Object, ConstraintValidatorContext)} calls.
      * The constraint annotation for a given constraint declaration
      * is passed.
      * <p>

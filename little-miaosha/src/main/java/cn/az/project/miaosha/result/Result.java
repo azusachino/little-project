@@ -16,11 +16,6 @@ public class Result<T> {
     private String message;
     private T data;
 
-    private Result(@NonNull CodeMessage cm) {
-        this.code = cm.getCode();
-        this.message = cm.getMessage();
-    }
-
     private Result(@NonNull CodeMessage cm, T t) {
         this.code = cm.getCode();
         this.message = cm.getMessage();

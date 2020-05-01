@@ -17,7 +17,7 @@ import java.util.Set;
 @Service
 public class RedisServiceImpl implements RedisService {
 
-    private JedisPool jedisPool;
+    final JedisPool jedisPool;
 
     @Autowired
     public RedisServiceImpl(JedisPool jedisPool) {
@@ -74,7 +74,7 @@ public class RedisServiceImpl implements RedisService {
      *
      * @param key     key
      * @param value   value
-     * @param seconds 毫秒
+     * @param miliSeconds 毫秒
      * @return String string
      * @throws RedisConnectionFailureException the redis connection failure exception
      */
@@ -125,7 +125,7 @@ public class RedisServiceImpl implements RedisService {
      * pexpire命令
      *
      * @param key     key
-     * @param seconds 毫秒
+     * @param miliSeconds 毫秒
      * @return Long long
      * @throws RedisConnectionFailureException the redis connection failure exception
      */
