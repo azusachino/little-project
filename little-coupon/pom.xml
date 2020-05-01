@@ -11,11 +11,12 @@
   </parent>
 
   <artifactId>little-coupon</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>little-coupon</name>
-  <description>coupon part for card system</description>
 
   <dependencies>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>

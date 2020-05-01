@@ -15,7 +15,7 @@
   <version>0.1.0</version>
   <packaging>pom</packaging>
   <name>little-project</name>
-  <description>my little boot projects</description>
+  <description>my spring boot projects</description>
 
   <modules>
     <module>little-csv</module>
@@ -25,6 +25,7 @@
     <module>little-netty</module>
     <module>little-muxin</module>
     <module>little-miaosha</module>
+    <module>little-mq</module>
   </modules>
 
   <properties>
@@ -43,10 +44,16 @@
     <commons-code.version>1.14</commons-code.version>
     <hadoop.version>2.5.0.RELEASE</hadoop.version>
     <javase.version>3.4.0</javase.version>
+    <rocketmq.version>2.1.0</rocketmq.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>org.apache.rocketmq</groupId>
+        <artifactId>rocketmq-spring-boot-starter</artifactId>
+        <version>${rocketmq.version}</version>
+      </dependency>
       <dependency>
         <groupId>org.springframework.data</groupId>
         <artifactId>spring-data-hadoop-hbase</artifactId>
@@ -114,14 +121,6 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-
-  <dependencies>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <optional>true</optional>
-    </dependency>
-  </dependencies>
 
   <build>
     <plugins>
