@@ -26,6 +26,7 @@
     <module>little-muxin</module>
     <module>little-miaosha</module>
     <module>little-mq</module>
+    <module>little-flow</module>
   </modules>
 
   <properties>
@@ -45,6 +46,7 @@
     <hadoop.version>2.5.0.RELEASE</hadoop.version>
     <javase.version>3.4.0</javase.version>
     <rocketmq.version>2.1.0</rocketmq.version>
+    <flowable.version>6.5.0</flowable.version>
   </properties>
 
   <dependencyManagement>
@@ -118,6 +120,11 @@
         <groupId>com.google.zxing</groupId>
         <artifactId>javase</artifactId>
         <version>${javase.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.flowable</groupId>
+        <artifactId>flowable-spring-boot-starter</artifactId>
+        <version>${flowable.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
