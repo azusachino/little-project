@@ -12,5 +12,6 @@ mybatis-plus:
     banner: false
   configuration:
     default-enum-type-handler: com.baomidou.mybatisplus.extension.handlers.MybatisEnumTypeHandler
+  type-aliases-package: cn.az.project.batch.domain
 
 

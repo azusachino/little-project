@@ -1,5 +1,7 @@
 package cn.az.project.batch.concurrent;
 
+import org.springframework.lang.NonNull;
+
 import java.util.Map;
 import java.util.concurrent.ThreadFactory;
 
@@ -31,7 +33,7 @@ public class DelegateThreadFactory implements ThreadFactory {
      * create a thread is rejected
      */
     @Override
-    public Thread newThread(Runnable r) {
+    public Thread newThread(@NonNull Runnable r) {
         Thread t = threadFactory.newThread(r);
         threads.putIfAbsent(r.getClass().getName(), t);
         return t;

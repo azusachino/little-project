@@ -10,7 +10,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
  * @author az
  */
 @SpringBootApplication
-public class CsvBatchApplication {
+public class LittleCsvApplication {
 
     public static void main(String[] args) {
         SpringApplication application = new SpringApplicationBuilder()

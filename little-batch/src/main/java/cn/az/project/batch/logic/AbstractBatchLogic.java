@@ -9,9 +9,9 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public abstract class AbstractBatchLogic extends Thread{
+public abstract class AbstractBatchLogic extends Thread {
 
-    protected boolean stopFlag = false;
+    protected volatile boolean stopFlag = false;
 
     protected boolean isWorking = false;
 
