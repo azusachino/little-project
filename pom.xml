@@ -27,6 +27,7 @@
     <module>little-miaosha</module>
     <module>little-mq</module>
     <module>little-flow</module>
+      <module>little-rpc</module>
   </modules>
 
   <properties>
