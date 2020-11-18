@@ -1,0 +1,68 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: little-sharding
+
+sharding:
+  jdbc:
+    datasource:
+      names: test0, test1
+      test0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://127.0.0.1:3306/azusa?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+        username: root
+        password: azusa520
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        filters: stat
+        validation-query: SELECT 1
+        max-active: 2
+        initial-size: 1
+        max-wait: 60000
+        min-idle: 1
+        time-between-eviction-runs-millis: 60000
+        min-evictable-idle-time-millis: 300000
+        test-while-idle: false
+        test-on-borrow: false
+        test-on-return: false
+        pool-prepared-statements: true
+        max-pool-prepared-statement-per-connection-size: 20
+      test1:
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://127.0.0.1:3306/azusa?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+        username: root
+        password: azusa520
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        filters: stat
+        validation-query: SELECT 1
+        max-active: 2
+        initial-size: 1
+        max-wait: 60000
+        min-idle: 1
+        time-between-eviction-runs-millis: 60000
+        min-evictable-idle-time-millis: 300000
+        test-while-idle: false
+        test-on-borrow: false
+        test-on-return: false
+        pool-prepared-statements: true
+        max-pool-prepared-statement-per-connection-size: 20
+    config:
+      masterslave:
+        load-balance-algorithm-type: round_robin
+        name: dataSource
+        master-data-source-name: test0
+        slave-data-source-names: test1
+      props:
+        sql.show: true
+
+mybatis-plus:
+  global-config:
+    banner: off
+    db-config:
+      id-type: auto
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jLoggerImpl
+    default-enum-type-handler: com.baomidou.mybatisplus.extension.handlers.MybatisEnumTypeHandler
+    jdbc-type-for-null: varchar
+  type-aliases-package: cn.az.project.entity

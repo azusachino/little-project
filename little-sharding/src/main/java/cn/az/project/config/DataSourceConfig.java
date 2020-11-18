@@ -1,6 +1,5 @@
 package cn.az.project.config;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -8,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
  * @since 11/17/20
  */
 @Configuration
-@MapperScan(basePackages = "cn.az.project.mapper")
-public class MybatisPlusConfig {
+public class DataSourceConfig {
 
 }
