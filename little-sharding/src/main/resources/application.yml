@@ -2,19 +2,21 @@ server:
   port: 8080
 
 spring:
+  main:
+    allow-bean-definition-overriding: true # druid的DataSource和Sharding的DataSource
   application:
     name: little-sharding
 
 sharding:
   jdbc:
     datasource:
-      names: test0, test1
-      test0:
+      names: my-master,my-slave,pg-master,pg-slave # 不能含有空格
+      my-master:
         type: com.alibaba.druid.pool.DruidDataSource
-        url: jdbc:mysql://127.0.0.1:3306/azusa?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://180.76.169.35:3306/demo?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
         username: root
         password: azusa520
-        driver-class-name: com.mysql.cj.jdbc.Driver
         filters: stat
         validation-query: SELECT 1
         max-active: 2
@@ -28,12 +30,50 @@ sharding:
         test-on-return: false
         pool-prepared-statements: true
         max-pool-prepared-statement-per-connection-size: 20
-      test1:
+      my-slave:
         type: com.alibaba.druid.pool.DruidDataSource
-        url: jdbc:mysql://127.0.0.1:3306/azusa?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://180.76.169.35:3306/demo?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
         username: root
         password: azusa520
-        driver-class-name: com.mysql.cj.jdbc.Driver
+        filters: stat
+        validation-query: SELECT 1
+        max-active: 2
+        initial-size: 1
+        max-wait: 60000
+        min-idle: 1
+        time-between-eviction-runs-millis: 60000
+        min-evictable-idle-time-millis: 300000
+        test-while-idle: false
+        test-on-borrow: false
+        test-on-return: false
+        pool-prepared-statements: true
+        max-pool-prepared-statement-per-connection-size: 20
+      pg-master:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://180.76.169.35:5432/azusa
+        username: postgres
+        password: azusa520
+        filters: stat
+        validation-query: SELECT 1
+        max-active: 2
+        initial-size: 1
+        max-wait: 60000
+        min-idle: 1
+        time-between-eviction-runs-millis: 60000
+        min-evictable-idle-time-millis: 300000
+        test-while-idle: false
+        test-on-borrow: false
+        test-on-return: false
+        pool-prepared-statements: true
+        max-pool-prepared-statement-per-connection-size: 20
+      pg-slave:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://180.76.169.35:5432/azusa
+        username: postgres
+        password: azusa520
         filters: stat
         validation-query: SELECT 1
         max-active: 2
@@ -48,13 +88,25 @@ sharding:
         pool-prepared-statements: true
         max-pool-prepared-statement-per-connection-size: 20
     config:
-      masterslave:
-        load-balance-algorithm-type: round_robin
-        name: dataSource
-        master-data-source-name: test0
-        slave-data-source-names: test1
       props:
-        sql.show: true
+        sql:
+          show: true
+      sharding:
+        master-slave-rules:
+          first:
+            masterDataSourceName: my-master
+            slaveDataSourceNames:
+              - my-slave
+            loadBalanceAlgorithmType: ROUND_ROBIN
+          second:
+            masterDataSourceName: pg-master
+            slaveDataSourceNames:
+              - pg-slave
+            loadBalanceAlgorithmType: ROUND_ROBIN
+        default-data-source-name: first
+        default-database-strategy:
+          hint:
+            algorithm-class-name: cn.az.project.alg.MyDataSourceRoutingAlgorithm
 
 mybatis-plus:
   global-config:
@@ -62,7 +114,7 @@ mybatis-plus:
     db-config:
       id-type: auto
   configuration:
-    log-impl: org.apache.ibatis.logging.slf4j.Slf4jLoggerImpl
     default-enum-type-handler: com.baomidou.mybatisplus.extension.handlers.MybatisEnumTypeHandler
     jdbc-type-for-null: varchar
   type-aliases-package: cn.az.project.entity
+  mapper-locations: classpath*:/mapper/**/*.xml
