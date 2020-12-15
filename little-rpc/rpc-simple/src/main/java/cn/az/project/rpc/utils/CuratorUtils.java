@@ -11,6 +11,7 @@ import org.apache.curator.framework.recipes.cache.PathChildrenCacheListener;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.zookeeper.CreateMode;
 
+import java.net.InetSocketAddress;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -80,10 +81,12 @@ public class CuratorUtils {
     /**
      * Empty the registry of data
      */
-    public static void clearRegistry(CuratorFramework zkClient) {
+    public static void clearRegistry(CuratorFramework zkClient, InetSocketAddress inetSocketAddress) {
         REGISTERED_PATH_SET.stream().parallel().forEach(p -> {
             try {
-                zkClient.delete().forPath(p);
+                if (p.endsWith(inetSocketAddress.toString())) {
+                    zkClient.delete().forPath(p);
+                }
             } catch (Exception e) {
                 log.error("clear registry for path [{}] fail", p);
             }

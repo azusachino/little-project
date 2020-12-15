@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Getter
 public class CustomThreadPoolConfig {
+
     /**
      * 线程池默认参数
      */
@@ -21,6 +22,7 @@ public class CustomThreadPoolConfig {
     private static final TimeUnit DEFAULT_TIME_UNIT = TimeUnit.MINUTES;
     private static final int DEFAULT_BLOCKING_QUEUE_CAPACITY = 100;
     private static final int BLOCKING_QUEUE_CAPACITY = 100;
+
     /**
      * 可配置参数
      */
@@ -28,6 +30,7 @@ public class CustomThreadPoolConfig {
     private final int maximumPoolSize = DEFAULT_MAXIMUM_POOL_SIZE_SIZE;
     private final long keepAliveTime = DEFAULT_KEEP_ALIVE_TIME;
     private final TimeUnit unit = DEFAULT_TIME_UNIT;
+
     /**
      * 使用有界队列
      */

@@ -1,8 +1,13 @@
 package cn.az.project.rpc.config;
 
+import cn.az.project.rpc.remote.transport.netty.server.NettyRpcServer;
 import cn.az.project.rpc.utils.CuratorUtils;
 import cn.az.project.rpc.utils.ThreadPoolFactoryUtils;
 import lombok.extern.slf4j.Slf4j;
+
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.UnknownHostException;
 
 /**
  * @author az
@@ -20,7 +25,12 @@ public class CustomShutdownHook {
     public void clearAll() {
         log.info("addShutdownHook for clearAll");
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            CuratorUtils.clearRegistry(CuratorUtils.getZkClient());
+            try {
+                InetSocketAddress inetSocketAddress = new InetSocketAddress(InetAddress.getLocalHost(), NettyRpcServer.PORT);
+                CuratorUtils.clearRegistry(CuratorUtils.getZkClient(), inetSocketAddress);
+            } catch (UnknownHostException ignored) {
+
+            }
             ThreadPoolFactoryUtils.shutDownAllThreadPool();
         }));
     }
