@@ -1,10 +1,14 @@
 package cn.az.project.rpc.proxy;
 
 import cn.az.project.rpc.entity.RpcServiceProperties;
+import cn.az.project.rpc.enums.RpcErrorMessageEnum;
+import cn.az.project.rpc.enums.RpcResponseCodeEnum;
+import cn.az.project.rpc.exception.RpcException;
 import cn.az.project.rpc.remote.dto.RpcRequest;
 import cn.az.project.rpc.remote.dto.RpcResponse;
 import cn.az.project.rpc.remote.transport.RpcRequestTransport;
-import lombok.SneakyThrows;
+import cn.az.project.rpc.remote.transport.netty.client.NettyRpcClient;
+import cn.az.project.rpc.remote.transport.socket.SocketRpcClient;
 import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.InvocationHandler;
@@ -12,6 +16,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 /**
  * @author az
@@ -57,7 +62,7 @@ public class RpcClientProxy implements InvocationHandler {
      * The proxy object is the object you get through the getProxy method.
      */
     @Override
-    public Object invoke(Object proxy, Method method, Object[] args) {
+    public Object invoke(Object proxy, Method method, Object[] args) throws ExecutionException, InterruptedException {
         log.info("invoked method: [{}]", method.getName());
         RpcRequest rpcRequest = RpcRequest.builder().methodName(method.getName())
                 .parameters(args)

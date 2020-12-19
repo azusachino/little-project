@@ -1,5 +1,12 @@
 package cn.az.project.rpc.remote.transport.netty.codec;
 
+import cn.az.project.rpc.compress.Compress;
+import cn.az.project.rpc.enums.CompressTypeEnum;
+import cn.az.project.rpc.enums.SerializationTypeEnum;
+import cn.az.project.rpc.extension.ExtensionLoader;
+import cn.az.project.rpc.remote.constant.RpcConstants;
+import cn.az.project.rpc.remote.dto.RpcMessage;
+import cn.az.project.rpc.serialize.Serializer;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
@@ -13,6 +20,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 @Slf4j
 public class RpcMessageEncoder extends MessageToByteEncoder<RpcMessage> {
+
     private static final AtomicInteger ATOMIC_INTEGER = new AtomicInteger(0);
 
     @Override
@@ -59,7 +67,6 @@ public class RpcMessageEncoder extends MessageToByteEncoder<RpcMessage> {
         }
 
     }
-
 
 }
 

@@ -1,5 +1,14 @@
 package cn.az.project.rpc.remote.transport.netty.codec;
 
+import cn.az.project.rpc.compress.Compress;
+import cn.az.project.rpc.enums.CompressTypeEnum;
+import cn.az.project.rpc.enums.SerializationTypeEnum;
+import cn.az.project.rpc.extension.ExtensionLoader;
+import cn.az.project.rpc.remote.constant.RpcConstants;
+import cn.az.project.rpc.remote.dto.RpcMessage;
+import cn.az.project.rpc.remote.dto.RpcRequest;
+import cn.az.project.rpc.remote.dto.RpcResponse;
+import cn.az.project.rpc.serialize.Serializer;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
@@ -13,6 +22,7 @@ import java.util.Arrays;
  */
 @Slf4j
 public class RpcMessageDecoder extends LengthFieldBasedFrameDecoder {
+
     public RpcMessageDecoder() {
         // lengthFieldOffset: magic code is 4B, and version is 1B, and then full length. so value is 5
         // lengthFieldLength: full length is 4B. so value is 4
@@ -112,7 +122,6 @@ public class RpcMessageDecoder extends LengthFieldBasedFrameDecoder {
             }
         }
         return rpcMessage;
-
     }
 
 }

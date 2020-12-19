@@ -7,6 +7,7 @@ import cn.az.project.rpc.extension.ExtensionLoader;
 import cn.az.project.rpc.factory.SingletonFactory;
 import cn.az.project.rpc.provider.ServiceProvider;
 import cn.az.project.rpc.provider.ServiceProviderImpl;
+import cn.az.project.rpc.proxy.RpcClientProxy;
 import cn.az.project.rpc.remote.transport.RpcRequestTransport;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
