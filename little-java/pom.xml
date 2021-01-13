@@ -30,6 +30,11 @@
         <module>little-rpc</module>
         <module>little-sharding</module>
         <module>little-druid</module>
+        <module>little-idea</module>
+        <module>little-mall</module>
+        <module>little-news</module>
+        <module>little-shop</module>
+        <module>little-test</module>
     </modules>
 
     <properties>
