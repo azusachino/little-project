@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: core, db
+  messages:
+    encoding: UTF-8
+
+logging:
+  level:
+    org.springframework: ERROR
+    org.mybatis: ERROR
+    cn.az.shop.core: DEBUG

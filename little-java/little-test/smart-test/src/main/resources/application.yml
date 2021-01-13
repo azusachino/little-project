@@ -1,0 +1,56 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: Little-Test
+  datasource:
+    druid:
+      url: jdbc:mysql://180.76.169.35:3306/demo?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      username: root
+      password: azusa520
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      validation-query: SELECT 1
+  redis:
+    host: 180.76.169.35
+    port: 6379
+    password:
+    jedis:
+      pool:
+        min-idle: 8
+        max-idle: 500
+        max-active: 2000
+        max-wait: 10000
+    timeout: 0
+
+  aop:
+    proxy-target-class: true
+
+  messages:
+    encoding: UTF-8
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+#mybatis plus 设置
+mybatis-plus:
+  type-aliases-package: cn.az.project.test.system.entity
+  configuration:
+    jdbc-type-for-null: null
+    default-enum-type-handler: com.baomidou.mybatisplus.extension.handlers.MybatisEnumTypeHandler
+  global-config:
+    banner: false
+    db-config:
+      id-type: auto
+
+shiro:
+  web:
+    enabled: true
+
+common:
+  log: false
+  # 后端免认证接口 url
+  anon-url: /login,/logout
+  # token有效期，单位秒
+  time-out: 3600

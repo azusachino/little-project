@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.az.project.test.system.mapper.TestMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.az.project.test.system.entity.Test">
+        <id column="TEST_ID" property="testId"/>
+        <result column="TEST_NAME" property="testName"/>
+        <result column="GRADE_ID" property="gradeId"/>
+        <result column="PAPER_ID" property="paperId"/>
+        <result column="SUBJECT_ID" property="subjectId"/>
+        <result column="START_TIME" property="startTime"/>
+        <result column="END_TIME" property="endTime"/>
+        <result column="TEST_TIME" property="testTime"/>
+        <result column="CREATE_TIME" property="createTime"/>
+        <result column="UPDATE_TIME" property="updateTime"/>
+        <result column="STATUS" property="status"/>
+    </resultMap>
+
+</mapper>

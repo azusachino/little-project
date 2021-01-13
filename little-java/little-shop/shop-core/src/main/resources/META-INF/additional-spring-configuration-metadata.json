@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "cn.az.storage.active",
+      "type": "java.lang.String",
+      "description": "Description for cn.az.storage.active."
+  }
+] }
