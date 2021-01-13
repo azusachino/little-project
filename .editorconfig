@@ -1,0 +1,7 @@
+[*]
+charset = utf-8
+indent_style = space
+trim_trailing_whitespace = true
+
+[*.java]
+indent_size = 4
