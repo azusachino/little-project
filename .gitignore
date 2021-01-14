@@ -6,3 +6,5 @@
 *.log
 *.iml
 *.class
+*.sum
+/pkg/
