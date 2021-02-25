@@ -1,0 +1,25 @@
+cn:
+  az:
+    storage:
+      active: 'local'
+      local:
+        storagePath: storage
+        address: http://localhost:8080/wx/storage/fetch
+      aliyun:
+        endpoint: oss-cn-shenzhen.aliyuncs.com
+        accessKeyId: 111111
+        accessKeySecret: xxxxxx
+        bucketName: litemall
+      # 腾讯对象存储配置信息
+      # 请参考 https://cloud.tencent.com/document/product/436/6249
+      tencent:
+        secretId: AKIDOccMr856uoU1Tsa2MQL5aqseBUWRrb5i
+        secretKey: XqtgEhIdrupTs4ygaWlkUUXv3w3FiwuD
+        region: ap-shanghai
+        bucketName: vytech-1300096589
+      # 七牛云对象存储配置信息
+      qiniu:
+        endpoint: http://pd5cb6ulu.bkt.clouddn.com
+        accessKey: 111111
+        secretKey: xxxxxx
+        bucketName: litemall

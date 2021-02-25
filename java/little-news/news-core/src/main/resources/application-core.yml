@@ -1,0 +1,13 @@
+spring:
+  messages:
+    encoding: UTF-8
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+common:
+  log: true
+  # 后端免认证接口 url
+  anon-url: /admin/auth/**,/login,/logout,/register
+  # token有效期，单位秒
+  time-out: 3600

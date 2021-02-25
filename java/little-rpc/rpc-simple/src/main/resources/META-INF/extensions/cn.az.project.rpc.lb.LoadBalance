@@ -1,0 +1,1 @@
+loadBalance=cn.az.project.rpc.lb.loadbalancer.ConsistentHashLoadBalancer

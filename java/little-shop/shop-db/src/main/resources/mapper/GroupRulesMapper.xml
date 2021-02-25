@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.az.project.shop.db.mapper.GroupRulesMapper">
+  <!-- 通用查询映射结果 -->
+  <resultMap id="BaseResultMap" type="cn.az.project.shop.db.entity.GroupRules">
+    <id column="id" property="id"/>
+    <result column="product_id" property="productId"/>
+    <result column="product_name" property="productName"/>
+    <result column="pic_url" property="picUrl"/>
+    <result column="discount" property="discount"/>
+    <result column="discount_member" property="discountMember"/>
+    <result column="expire_time" property="expireTime"/>
+    <result column="status" property="status"/>
+    <result column="create_time" property="createTime"/>
+    <result column="update_time" property="updateTime"/>
+    <result column="deleted" property="deleted"/>
+  </resultMap>
+
+</mapper>

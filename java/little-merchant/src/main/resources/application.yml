@@ -1,0 +1,40 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: Little-Merchant
+  datasource:
+    username: root
+    password: azusa520
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/card
+    druid:
+      validation-query: SELECT 1
+      db-type: mysql
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    timeout: 0
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: 1000
+        min-idle: 0
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    consumer:
+      group-id: card
+    listener:
+      concurrency: 4
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+    banner: false
+  configuration:
+    default-enum-type-handler: com.baomidou.mybatisplus.extension.handlers.MybatisEnumTypeHandler
+  type-aliases-package: cn.az.card.merchant.entity

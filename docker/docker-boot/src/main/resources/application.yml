@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: docker-boot
+
+server:
+  port: 8088

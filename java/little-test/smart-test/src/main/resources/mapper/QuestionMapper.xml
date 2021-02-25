@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.az.project.test.system.mapper.QuestionMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.az.project.test.system.entity.Question">
+        <id column="QUESTION_ID" property="questionId"/>
+        <result column="TYPE_ID" property="typeId"/>
+        <result column="SUBJECT_ID" property="subjectId"/>
+        <result column="GRADE_ID" property="gradeId"/>
+        <result column="KNOWLEDGE_ID" property="knowledgeId"/>
+        <result column="DIFFICULTY" property="difficulty"/>
+        <result column="TITLE" property="title"/>
+        <result column="OPTION_A" property="optionA"/>
+        <result column="OPTION_B" property="optionB"/>
+        <result column="OPTION_C" property="optionC"/>
+        <result column="OPTION_D" property="optionD"/>
+        <result column="ANSWER" property="answer"/>
+        <result column="REMARK" property="remark"/>
+        <result column="CREATE_TIME" property="createTime"/>
+        <result column="UPDATE_TIME" property="updateTime"/>
+        <result column="STATUS" property="status"/>
+    </resultMap>
+
+    <!--  <select id="queryWithPage" resultType="Question">
+        SELECT q.*, SUBJECT, TYPE, KNOWLEDGE, USERNAME, GRADE
+        FROM question q
+        LEFT JOIN subject s ON s.SUBJECT_ID = q.SUBJECT_ID
+        LEFT JOIN type t ON t.TYPE_ID = q.TYPE_ID
+        LEFT JOIN knowledge k ON q.KNOWLEDGE_ID = k.KNOWLEDGE_ID
+        LEFT JOIN user u ON q.USER_ID = u.USER_ID
+        LEFT JOIN grade g ON q.GRADE_ID = g.GRADE_ID
+        WHERE 1=1
+        <if test="param.typeId != null and param.typeId != ''">
+          AND q.TYPE_ID = #{param.typeId}
+        </if>
+        <if test="param.subjectId != null and param.subjectId != ''">
+          AND q.SUBJECT_ID = #{param.subjectId}
+        </if>
+        <if test="param.userId != null and param.userId != ''">
+          AND q.USER_ID = #{param.userId}
+        </if>
+        <if test="param.gradeId != null and param.gradeId != ''">
+          AND q.GRADE_ID = #{param.gradeId}
+        </if>
+        <if test="param.parameter != null and param.parameter != ''">
+          AND concat(q.TITLE, k.KNOWLEDGE) like '%'#{param.parameter}'%'
+        </if>
+        ORDER BY q.CREATE_TIME DESC
+      </select>-->
+
+</mapper>

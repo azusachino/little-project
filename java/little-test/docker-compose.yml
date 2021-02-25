@@ -1,0 +1,62 @@
+version: '3'
+services:
+  nginx:
+    container_name: nginx
+    build:
+      context: ./
+      dockerfile: ./docker/nginx/nginx-Dockerfile
+    environment:
+      TZ: Asia/Shanghai
+    ports:
+      - "80:80"
+    volumes:
+      - ~/.fame/logs/nginx:/var/log/nginx
+    depends_on:
+      - backend
+      - frontend
+
+  mysql:
+    container_name: mysql
+    build:
+      context: ./
+      dockerfile: ./docker/mysql/mysql-Dockerfile
+    environment:
+      MYSQL_DATABASE: smart_test_dev
+      MYSQL_ROOT_PASSWORD: azusa520
+      MYSQL_ROOT_HOST: '%'
+      TZ: Asia/Shanghai
+    expose:
+      - "3306"
+    volumes:
+      - ~/.fame/mysql/mysql_data:/var/lib/mysql
+    restart: always
+
+  backend:
+    container_name: backend
+    build:
+      context: ./
+      dockerfile: ./docker/backend-Dockerfile
+    working_dir: /app
+    environment:
+      TZ: Asia/Shanghai
+    volumes:
+      - ./backend:/app
+      - ~/.m2:/root/.m2
+      - ~/.fame/logs/server:/app/log
+      - ~/.fame/upload:/root/.fame/upload
+    expose:
+      - "8088"
+    command: mvn clean spring-boot:run -Dspring-boot.run.profiles=docker -Dmaven.test.skip=true
+    depends_on:
+      - mysql
+    restart: always
+
+  frontend:
+    container_name: frontend
+    build:
+      context: ./
+      dockerfile: ./docker/frontend-Dockerfile
+    environment:
+      TZ: Asia/Shanghai
+    expose:
+      - "3000"

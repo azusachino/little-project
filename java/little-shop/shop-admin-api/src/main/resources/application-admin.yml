@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: Little Shop
+
+server:
+  port: 8083
+
+shiro:
+  enabled: true

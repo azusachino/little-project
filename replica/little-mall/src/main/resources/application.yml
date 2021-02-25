@@ -1,0 +1,38 @@
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 300
+    min-spare-threads: 30
+
+logging:
+  level:
+    com.baomidou: debug
+    org.springframework: info
+    cn.az.replica: debug
+
+spring:
+  thymeleaf:
+    cache: false
+    suffix: .html
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  profiles:
+    active: dev
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: flag
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+    banner: false
+  configuration:
+    map-underscore-to-camel-case: true
+    default-enum-type-handler: com.baomidou.mybatisplus.extension.handlers.MybatisEnumTypeHandler
+  type-aliases-package: cn.az.replica.mall.entity
+  mapper-locations: classpath*:/mapper/*Mapper.xml
+
+upload:
+  dir: D:/temp/upload

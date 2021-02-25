@@ -1,0 +1,45 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/mall?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      username: root
+      password: azusa520
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: localhost
+    database: 0
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+    timeout: 3000
+
+mybatis-plus:
+  configuration:
+    jdbc-type-for-null: null
+  global-config:
+    banner: false
+  type-aliases-package: cn.az.mall.model
+  mapper-locations: classpath:mapper/*.xml
+
+# 自定义redis key
+redis:
+  key:
+    prefix:
+      authCode: "portal:authCode:"
+    expire:
+      authCode: 120 # 验证码超期时间
+
+# 自定义jwt key
+jwt:
+  tokenHeader: authorization #JWT存储的请求头
+  secret: alice #JWT加解密使用的密钥
+  expiration: 604800 #JWT的超期限时间(60*60*24)
+  tokenHead: cabeza  #JWT负载中拿到开头

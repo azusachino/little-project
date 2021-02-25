@@ -1,0 +1,44 @@
+spring:
+  datasource:
+    url: jdbc:mysql://180.76.169.35:3306/little_shop?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: azusa520
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      initial-size:  10
+      max-active:  50
+      min-idle:  10
+      max-wait:  60000
+      pool-prepared-statements:  true
+      max-pool-prepared-statement-per-connection-size:  20
+      validation-query:  SELECT 1
+      test-on-borrow:  false
+      test-on-return:  false
+      test-while-idle:  true
+      time-between-eviction-runs-millis:  60000
+      filters:  stat,wall
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+    jedis:
+      pool:
+        min-idle: 8
+        max-idle: 500
+        max-active: 2000
+        max-wait: 10000
+    timeout: 0
+  application:
+    name: shop-db
+
+#mybatis plus
+mybatis-plus:
+  type-aliases-package: cn.az.project.shop.db.entity
+  mapper-locations: classpath:mapper/*Mapper.xml
+  configuration:
+    jdbc-type-for-null: null
+    default-enum-type-handler: com.baomidou.mybatisplus.extension.handlers.MybatisEnumTypeHandler
+  global-config:
+    # 关闭 mybatis-plus的 banner
+    banner: false
