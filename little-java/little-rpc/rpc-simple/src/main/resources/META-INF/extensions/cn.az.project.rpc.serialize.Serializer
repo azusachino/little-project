@@ -1,2 +1,0 @@
-kyro=cn.az.project.rpc.serialize.kyro.KyroSerializer
-protostuff=cn.az.project.rpc.serialize.protostuff.ProtostuffSerializer

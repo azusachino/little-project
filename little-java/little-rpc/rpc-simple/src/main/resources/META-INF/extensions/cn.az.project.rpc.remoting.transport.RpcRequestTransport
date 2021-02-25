@@ -1,2 +1,0 @@
-netty=cn.az.project.rpc.remoting.transport.netty.client.NettyRpcClient
-socket=cn.az.project.rpc.remoting.transport.socket.SocketRpcClient

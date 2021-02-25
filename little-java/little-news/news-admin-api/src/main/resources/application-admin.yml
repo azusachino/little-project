@@ -1,9 +1,0 @@
-spring:
-  application:
-    name: Little News
-
-server:
-  port: 8081
-
-shiro:
-  enabled: true

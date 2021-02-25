@@ -1,6 +1,0 @@
-spring:
-  application:
-    name: little-mq
-  rabbitmq:
-    host: 180.76.169.35
-    port: 5672

@@ -8,3 +8,7 @@
 *.class
 *.sum
 /pkg/
+
+**/node_modules/
+**/pkg/
+**/vendor/

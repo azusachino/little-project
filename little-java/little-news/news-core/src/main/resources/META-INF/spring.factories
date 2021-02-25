@@ -1,2 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-cn.az.project.news.core.autoconfigure.CommonPropertiesAutoConfigure
