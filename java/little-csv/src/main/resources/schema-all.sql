@@ -1,8 +1,8 @@
 create
-database if not exists test;
+    database if not exists test;
 
 use
-test;
+    test;
 
 drop table if exists people;
 

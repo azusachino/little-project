@@ -9,11 +9,11 @@ import service from '@/utils/request'
 // @Success 200 {string} string "{"success":true,"data":{},"msg":"获取成功"}"
 // @Router /sysDictionaryDetail/createSysDictionaryDetail [post]
 export const createSysDictionaryDetail = (data) => {
-    return service({
-        url: "/sysDictionaryDetail/createSysDictionaryDetail",
-        method: 'post',
-        data
-    })
+  return service({
+    url: "/sysDictionaryDetail/createSysDictionaryDetail",
+    method: 'post',
+    data
+  })
 }
 
 
@@ -26,11 +26,11 @@ export const createSysDictionaryDetail = (data) => {
 // @Success 200 {string} string "{"success":true,"data":{},"msg":"删除成功"}"
 // @Router /sysDictionaryDetail/deleteSysDictionaryDetail [delete]
 export const deleteSysDictionaryDetail = (data) => {
-    return service({
-        url: "/sysDictionaryDetail/deleteSysDictionaryDetail",
-        method: 'delete',
-        data
-    })
+  return service({
+    url: "/sysDictionaryDetail/deleteSysDictionaryDetail",
+    method: 'delete',
+    data
+  })
 }
 
 // @Tags SysDictionaryDetail
@@ -42,11 +42,11 @@ export const deleteSysDictionaryDetail = (data) => {
 // @Success 200 {string} string "{"success":true,"data":{},"msg":"更新成功"}"
 // @Router /sysDictionaryDetail/updateSysDictionaryDetail [put]
 export const updateSysDictionaryDetail = (data) => {
-    return service({
-        url: "/sysDictionaryDetail/updateSysDictionaryDetail",
-        method: 'put',
-        data
-    })
+  return service({
+    url: "/sysDictionaryDetail/updateSysDictionaryDetail",
+    method: 'put',
+    data
+  })
 }
 
 
@@ -59,11 +59,11 @@ export const updateSysDictionaryDetail = (data) => {
 // @Success 200 {string} string "{"success":true,"data":{},"msg":"查询成功"}"
 // @Router /sysDictionaryDetail/findSysDictionaryDetail [get]
 export const findSysDictionaryDetail = (params) => {
-    return service({
-        url: "/sysDictionaryDetail/findSysDictionaryDetail",
-        method: 'get',
-        params
-    })
+  return service({
+    url: "/sysDictionaryDetail/findSysDictionaryDetail",
+    method: 'get',
+    params
+  })
 }
 
 
@@ -76,9 +76,9 @@ export const findSysDictionaryDetail = (params) => {
 // @Success 200 {string} string "{"success":true,"data":{},"msg":"获取成功"}"
 // @Router /sysDictionaryDetail/getSysDictionaryDetailList [get]
 export const getSysDictionaryDetailList = (params) => {
-    return service({
-        url: "/sysDictionaryDetail/getSysDictionaryDetailList",
-        method: 'get',
-        params
-    })
+  return service({
+    url: "/sysDictionaryDetail/getSysDictionaryDetailList",
+    method: 'get',
+    params
+  })
 }

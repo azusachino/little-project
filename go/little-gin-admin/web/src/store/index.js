@@ -10,14 +10,14 @@ Vue.use(Vuex)
 
 
 const vuexLocal = new VuexPersistence({
-    storage: window.localStorage,
-    modules: ['user']
+  storage: window.localStorage,
+  modules: ['user']
 })
 export const store = new Vuex.Store({
-    modules: {
-        user,
-        router,
-        dictionary
-    },
-    plugins: [vuexLocal.plugin]
+  modules: {
+    user,
+    router,
+    dictionary
+  },
+  plugins: [vuexLocal.plugin]
 })

@@ -7,10 +7,10 @@ import service from '@/utils/request'
 // @Success 200 {string} string "{"success":true,"data":{},"msg":"返回成功"}"
 // @Router /system/getSystemConfig [post]
 export const getSystemConfig = () => {
-    return service({
-        url: "/system/getSystemConfig",
-        method: 'post',
-    })
+  return service({
+    url: "/system/getSystemConfig",
+    method: 'post',
+  })
 }
 
 // @Tags system
@@ -21,9 +21,9 @@ export const getSystemConfig = () => {
 // @Success 200 {string} string "{"success":true,"data":{},"msg":"返回成功"}"
 // @Router /system/setSystemConfig [post]
 export const setSystemConfig = (data) => {
-    return service({
-        url: "/system/setSystemConfig",
-        method: 'post',
-        data
-    })
+  return service({
+    url: "/system/setSystemConfig",
+    method: 'post',
+    data
+  })
 }

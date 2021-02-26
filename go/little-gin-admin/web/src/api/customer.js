@@ -9,11 +9,11 @@ import service from '@/utils/request'
 // @Success 200 {string} string "{"success":true,"data":{},"msg":"获取成功"}"
 // @Router /customer/customer [post]
 export const createExaCustomer = (data) => {
-    return service({
-        url: "/customer/customer",
-        method: 'post',
-        data
-    })
+  return service({
+    url: "/customer/customer",
+    method: 'post',
+    data
+  })
 }
 
 
@@ -26,11 +26,11 @@ export const createExaCustomer = (data) => {
 // @Success 200 {string} string "{"success":true,"data":{},"msg":"获取成功"}"
 // @Router /customer/customer [put]
 export const updateExaCustomer = (data) => {
-    return service({
-        url: "/customer/customer",
-        method: 'put',
-        data
-    })
+  return service({
+    url: "/customer/customer",
+    method: 'put',
+    data
+  })
 }
 
 
@@ -43,11 +43,11 @@ export const updateExaCustomer = (data) => {
 // @Success 200 {string} string "{"success":true,"data":{},"msg":"获取成功"}"
 // @Router /customer/customer [delete]
 export const deleteExaCustomer = (data) => {
-    return service({
-        url: "/customer/customer",
-        method: 'delete',
-        data
-    })
+  return service({
+    url: "/customer/customer",
+    method: 'delete',
+    data
+  })
 }
 
 
@@ -60,11 +60,11 @@ export const deleteExaCustomer = (data) => {
 // @Success 200 {string} string "{"success":true,"data":{},"msg":"获取成功"}"
 // @Router /customer/customer [get]
 export const getExaCustomer = (params) => {
-    return service({
-        url: "/customer/customer",
-        method: 'get',
-        params
-    })
+  return service({
+    url: "/customer/customer",
+    method: 'get',
+    params
+  })
 }
 
 
@@ -77,9 +77,9 @@ export const getExaCustomer = (params) => {
 // @Success 200 {string} string "{"success":true,"data":{},"msg":"获取成功"}"
 // @Router /customer/customerList [get]
 export const getExaCustomerList = (params) => {
-    return service({
-        url: "/customer/customerList",
-        method: 'get',
-        params
-    })
+  return service({
+    url: "/customer/customerList",
+    method: 'get',
+    params
+  })
 }

@@ -41,8 +41,8 @@ Vue.config.productionTip = false
 Vue.use(Bus)
 
 Vue.use(APlayer, {
-    defaultCover: 'https://github.com/u3u.png',
-    productionTip: true,
+  defaultCover: 'https://github.com/u3u.png',
+  productionTip: true,
 });
 
 
@@ -51,9 +51,9 @@ auth(Vue)
 
 
 new Vue({
-    render: h => h(App),
-    router,
-    store
+  render: h => h(App),
+  router,
+  store
 }).$mount('#app')
 
 Vue.prototype.$echarts = echarts;

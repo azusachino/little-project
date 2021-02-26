@@ -12,12 +12,12 @@ import service from '@/utils/request'
 //	pageSize int
 // }
 export const createTemp = (data) => {
-    return service({
-        url: "/autoCode/createTemp",
-        method: 'post',
-        data,
-        responseType: 'blob'
-    })
+  return service({
+    url: "/autoCode/createTemp",
+    method: 'post',
+    data,
+    responseType: 'blob'
+  })
 }
 
 
@@ -29,10 +29,10 @@ export const createTemp = (data) => {
 // @Success 200 {string} string "{"success":true,"data":{},"msg":"创建成功"}"
 // @Router /autoCode/getDatabase [get]
 export const getDB = () => {
-    return service({
-        url: "/autoCode/getDB",
-        method: 'get',
-    })
+  return service({
+    url: "/autoCode/getDB",
+    method: 'get',
+  })
 }
 
 
@@ -44,11 +44,11 @@ export const getDB = () => {
 // @Success 200 {string} string "{"success":true,"data":{},"msg":"创建成功"}"
 // @Router /autoCode/getTables [get]
 export const getTable = (params) => {
-    return service({
-        url: "/autoCode/getTables",
-        method: 'get',
-        params,
-    })
+  return service({
+    url: "/autoCode/getTables",
+    method: 'get',
+    params,
+  })
 }
 
 // @Tags SysApi
@@ -59,9 +59,9 @@ export const getTable = (params) => {
 // @Success 200 {string} string "{"success":true,"data":{},"msg":"创建成功"}"
 // @Router /autoCode/getColume [get]
 export const getColume = (params) => {
-    return service({
-        url: "/autoCode/getColume",
-        method: 'get',
-        params,
-    })
+  return service({
+    url: "/autoCode/getColume",
+    method: 'get',
+    params,
+  })
 }

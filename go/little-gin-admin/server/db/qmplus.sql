@@ -16,7 +16,7 @@
 
 SET NAMES utf8mb4;
 SET
-FOREIGN_KEY_CHECKS = 0;
+    FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
 -- Table structure for casbin_rule
@@ -31,7 +31,10 @@ CREATE TABLE `casbin_rule`
     `v3`     varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
     `v4`     varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
     `v5`     varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB
+  CHARACTER SET = utf8
+  COLLATE = utf8_general_ci
+  ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of casbin_rule
@@ -327,17 +330,21 @@ VALUES ('p', '888', '/sysOperationRecord/deleteSysOperationRecordByIds', 'DELETE
 DROP TABLE IF EXISTS `exa_customers`;
 CREATE TABLE `exa_customers`
 (
-    `id`                    int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    `created_at`            timestamp(0) NULL DEFAULT NULL,
-    `updated_at`            timestamp(0) NULL DEFAULT NULL,
-    `deleted_at`            timestamp(0) NULL DEFAULT NULL,
-    `customer_name`         varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '客户名',
+    `id`                    int(10) UNSIGNED                                        NOT NULL AUTO_INCREMENT,
+    `created_at`            timestamp(0)                                            NULL DEFAULT NULL,
+    `updated_at`            timestamp(0)                                            NULL DEFAULT NULL,
+    `deleted_at`            timestamp(0)                                            NULL DEFAULT NULL,
+    `customer_name`         varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin  NULL DEFAULT NULL COMMENT '客户名',
     `customer_phone_data`   varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '客户电话',
-    `sys_user_id`           int(10) UNSIGNED NULL DEFAULT NULL COMMENT '负责员工id',
+    `sys_user_id`           int(10) UNSIGNED                                        NULL DEFAULT NULL COMMENT '负责员工id',
     `sys_user_authority_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '负责员工角色',
     PRIMARY KEY (`id`) USING BTREE,
-    INDEX                   `idx_exa_customers_deleted_at`(`deleted_at`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Compact;
+    INDEX `idx_exa_customers_deleted_at` (`deleted_at`) USING BTREE
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 2
+  CHARACTER SET = utf8mb4
+  COLLATE = utf8mb4_bin
+  ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of exa_customers
@@ -351,16 +358,20 @@ VALUES (1, '2020-02-25 18:01:48', '2020-04-10 12:29:29', NULL, '测试客户', '
 DROP TABLE IF EXISTS `exa_file_chunks`;
 CREATE TABLE `exa_file_chunks`
 (
-    `id`                int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    `created_at`        timestamp(0) NULL DEFAULT NULL,
-    `updated_at`        timestamp(0) NULL DEFAULT NULL,
-    `deleted_at`        timestamp(0) NULL DEFAULT NULL,
-    `exa_file_id`       int(10) UNSIGNED NULL DEFAULT NULL COMMENT '文件id',
+    `id`                int(10) UNSIGNED                                        NOT NULL AUTO_INCREMENT,
+    `created_at`        timestamp(0)                                            NULL DEFAULT NULL,
+    `updated_at`        timestamp(0)                                            NULL DEFAULT NULL,
+    `deleted_at`        timestamp(0)                                            NULL DEFAULT NULL,
+    `exa_file_id`       int(10) UNSIGNED                                        NULL DEFAULT NULL COMMENT '文件id',
     `file_chunk_path`   varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '切片路径',
-    `file_chunk_number` int(11) NULL DEFAULT NULL COMMENT '切片标号',
+    `file_chunk_number` int(11)                                                 NULL DEFAULT NULL COMMENT '切片标号',
     PRIMARY KEY (`id`) USING BTREE,
-    INDEX               `idx_exa_file_chunks_deleted_at`(`deleted_at`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+    INDEX `idx_exa_file_chunks_deleted_at` (`deleted_at`) USING BTREE
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 1
+  CHARACTER SET = utf8
+  COLLATE = utf8_general_ci
+  ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for exa_file_upload_and_downloads
@@ -368,18 +379,22 @@ CREATE TABLE `exa_file_chunks`
 DROP TABLE IF EXISTS `exa_file_upload_and_downloads`;
 CREATE TABLE `exa_file_upload_and_downloads`
 (
-    `id`         int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    `created_at` timestamp(0) NULL DEFAULT NULL,
-    `updated_at` timestamp(0) NULL DEFAULT NULL,
-    `deleted_at` timestamp(0) NULL DEFAULT NULL,
+    `id`         int(10) UNSIGNED                                        NOT NULL AUTO_INCREMENT,
+    `created_at` timestamp(0)                                            NULL DEFAULT NULL,
+    `updated_at` timestamp(0)                                            NULL DEFAULT NULL,
+    `deleted_at` timestamp(0)                                            NULL DEFAULT NULL,
     `name`       varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '文件名',
     `url`        varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '文件URL',
     `tag`        varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '文件类型',
     `key`        varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '标记',
     PRIMARY KEY (`id`) USING BTREE,
-    INDEX        `idx_file_upload_and_downloads_deleted_at`(`deleted_at`) USING BTREE,
-    INDEX        `idx_exa_file_upload_and_downloads_deleted_at`(`deleted_at`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+    INDEX `idx_file_upload_and_downloads_deleted_at` (`deleted_at`) USING BTREE,
+    INDEX `idx_exa_file_upload_and_downloads_deleted_at` (`deleted_at`) USING BTREE
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 20
+  CHARACTER SET = utf8
+  COLLATE = utf8_general_ci
+  ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of exa_file_upload_and_downloads
@@ -397,18 +412,22 @@ VALUES (19, '2020-04-27 15:48:38', '2020-04-27 15:48:38', NULL, 'logo.png',
 DROP TABLE IF EXISTS `exa_files`;
 CREATE TABLE `exa_files`
 (
-    `id`          int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    `created_at`  timestamp(0) NULL DEFAULT NULL,
-    `updated_at`  timestamp(0) NULL DEFAULT NULL,
-    `deleted_at`  timestamp(0) NULL DEFAULT NULL,
+    `id`          int(10) UNSIGNED                                        NOT NULL AUTO_INCREMENT,
+    `created_at`  timestamp(0)                                            NULL DEFAULT NULL,
+    `updated_at`  timestamp(0)                                            NULL DEFAULT NULL,
+    `deleted_at`  timestamp(0)                                            NULL DEFAULT NULL,
     `file_name`   varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '文件名',
     `file_md5`    varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '文件md5',
     `file_path`   varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '文件路径',
-    `chunk_total` int(11) NULL DEFAULT NULL COMMENT '切片总数',
-    `is_finish`   tinyint(1) NULL DEFAULT NULL COMMENT '是否完整',
+    `chunk_total` int(11)                                                 NULL DEFAULT NULL COMMENT '切片总数',
+    `is_finish`   tinyint(1)                                              NULL DEFAULT NULL COMMENT '是否完整',
     PRIMARY KEY (`id`) USING BTREE,
-    INDEX         `idx_exa_files_deleted_at`(`deleted_at`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+    INDEX `idx_exa_files_deleted_at` (`deleted_at`) USING BTREE
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 1
+  CHARACTER SET = utf8
+  COLLATE = utf8_general_ci
+  ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for jwt_blacklists
@@ -416,14 +435,18 @@ CREATE TABLE `exa_files`
 DROP TABLE IF EXISTS `jwt_blacklists`;
 CREATE TABLE `jwt_blacklists`
 (
-    `id`         int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    `created_at` timestamp(0) NULL DEFAULT NULL,
-    `updated_at` timestamp(0) NULL DEFAULT NULL,
-    `deleted_at` timestamp(0) NULL DEFAULT NULL,
+    `id`         int(10) UNSIGNED                                NOT NULL AUTO_INCREMENT,
+    `created_at` timestamp(0)                                    NULL DEFAULT NULL,
+    `updated_at` timestamp(0)                                    NULL DEFAULT NULL,
+    `deleted_at` timestamp(0)                                    NULL DEFAULT NULL,
     `jwt`        text CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT 'jwt',
     PRIMARY KEY (`id`) USING BTREE,
-    INDEX        `idx_jwt_blacklists_deleted_at`(`deleted_at`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 57 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+    INDEX `idx_jwt_blacklists_deleted_at` (`deleted_at`) USING BTREE
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 57
+  CHARACTER SET = utf8
+  COLLATE = utf8_general_ci
+  ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for sys_apis
@@ -431,19 +454,23 @@ CREATE TABLE `jwt_blacklists`
 DROP TABLE IF EXISTS `sys_apis`;
 CREATE TABLE `sys_apis`
 (
-    `id`           int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    `created_at`   timestamp(0) NULL DEFAULT NULL,
-    `updated_at`   timestamp(0) NULL DEFAULT NULL,
-    `deleted_at`   timestamp(0) NULL DEFAULT NULL,
-    `authority_id` int(10) UNSIGNED NULL DEFAULT NULL COMMENT '角色id',
+    `id`           int(10) UNSIGNED                                        NOT NULL AUTO_INCREMENT,
+    `created_at`   timestamp(0)                                            NULL DEFAULT NULL,
+    `updated_at`   timestamp(0)                                            NULL DEFAULT NULL,
+    `deleted_at`   timestamp(0)                                            NULL DEFAULT NULL,
+    `authority_id` int(10) UNSIGNED                                        NULL DEFAULT NULL COMMENT '角色id',
     `path`         varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '路由path',
     `description`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '路由描述',
     `api_group`    varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '路由分组',
     `method`       varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT 'POST' COMMENT '请求方法',
     PRIMARY KEY (`id`) USING BTREE,
-    INDEX          `idx_apis_deleted_at`(`deleted_at`) USING BTREE,
-    INDEX          `idx_sys_apis_deleted_at`(`deleted_at`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 106 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+    INDEX `idx_apis_deleted_at` (`deleted_at`) USING BTREE,
+    INDEX `idx_sys_apis_deleted_at` (`deleted_at`) USING BTREE
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 106
+  CHARACTER SET = utf8
+  COLLATE = utf8_general_ci
+  ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of sys_apis
@@ -627,13 +654,16 @@ CREATE TABLE `sys_authorities`
     `authority_id`   varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '角色id',
     `authority_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '角色名',
     `parent_id`      varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '父角色',
-    `created_at`     datetime(0) NULL DEFAULT NULL,
-    `updated_at`     datetime(0) NULL DEFAULT NULL,
-    `deleted_at`     datetime(0) NULL DEFAULT NULL,
+    `created_at`     datetime(0)                                             NULL DEFAULT NULL,
+    `updated_at`     datetime(0)                                             NULL DEFAULT NULL,
+    `deleted_at`     datetime(0)                                             NULL DEFAULT NULL,
     PRIMARY KEY (`authority_id`) USING BTREE,
-    UNIQUE INDEX `authority_id`(`authority_id`) USING BTREE,
-    INDEX            `idx_sys_authorities_deleted_at`(`deleted_at`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+    UNIQUE INDEX `authority_id` (`authority_id`) USING BTREE,
+    INDEX `idx_sys_authorities_deleted_at` (`deleted_at`) USING BTREE
+) ENGINE = InnoDB
+  CHARACTER SET = utf8
+  COLLATE = utf8_general_ci
+  ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of sys_authorities
@@ -652,10 +682,13 @@ DROP TABLE IF EXISTS `sys_authority_menus`;
 CREATE TABLE `sys_authority_menus`
 (
     `sys_authority_authority_id` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL COMMENT '角色id',
-    `sys_base_menu_id`           int(10) UNSIGNED NOT NULL DEFAULT 0 COMMENT '菜单id',
+    `sys_base_menu_id`           int(10) UNSIGNED                                            NOT NULL DEFAULT 0 COMMENT '菜单id',
     PRIMARY KEY (`sys_authority_authority_id`, `sys_base_menu_id`) USING BTREE,
-    INDEX                        `sys_authority_authority_id`(`sys_authority_authority_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+    INDEX `sys_authority_authority_id` (`sys_authority_authority_id`) USING BTREE
+) ENGINE = InnoDB
+  CHARACTER SET = latin1
+  COLLATE = latin1_swedish_ci
+  ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of sys_authority_menus
@@ -767,26 +800,30 @@ VALUES ('9528', 42);
 DROP TABLE IF EXISTS `sys_base_menus`;
 CREATE TABLE `sys_base_menus`
 (
-    `id`           int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    `created_at`   timestamp(0) NULL DEFAULT NULL,
-    `updated_at`   timestamp(0) NULL DEFAULT NULL,
-    `deleted_at`   timestamp(0) NULL DEFAULT NULL,
-    `menu_level`   int(10) UNSIGNED NULL DEFAULT NULL COMMENT '菜单等级（暂未使用）',
-    `parent_id`    int(10) UNSIGNED NULL DEFAULT NULL COMMENT '父菜单id',
+    `id`           int(10) UNSIGNED                                        NOT NULL AUTO_INCREMENT,
+    `created_at`   timestamp(0)                                            NULL DEFAULT NULL,
+    `updated_at`   timestamp(0)                                            NULL DEFAULT NULL,
+    `deleted_at`   timestamp(0)                                            NULL DEFAULT NULL,
+    `menu_level`   int(10) UNSIGNED                                        NULL DEFAULT NULL COMMENT '菜单等级（暂未使用）',
+    `parent_id`    int(10) UNSIGNED                                        NULL DEFAULT NULL COMMENT '父菜单id',
     `path`         varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '菜单path（路由path）',
     `name`         varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '菜单name（路由name）',
-    `hidden`       tinyint(1) NULL DEFAULT NULL COMMENT '是否在列表隐藏',
+    `hidden`       tinyint(1)                                              NULL DEFAULT NULL COMMENT '是否在列表隐藏',
     `component`    varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '组件位置',
     `title`        varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '显示名字',
     `icon`         varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '显示图标',
     `nick_name`    varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '菜单别名',
-    `sort`         int(255) NULL DEFAULT NULL COMMENT '排序',
-    `keep_alive`   tinyint(1) NULL DEFAULT NULL COMMENT '是否缓存菜单内容',
-    `default_menu` tinyint(1) NULL DEFAULT NULL COMMENT '默认菜单（暂未使用）',
+    `sort`         int(255)                                                NULL DEFAULT NULL COMMENT '排序',
+    `keep_alive`   tinyint(1)                                              NULL DEFAULT NULL COMMENT '是否缓存菜单内容',
+    `default_menu` tinyint(1)                                              NULL DEFAULT NULL COMMENT '默认菜单（暂未使用）',
     PRIMARY KEY (`id`) USING BTREE,
-    INDEX          `idx_base_menus_deleted_at`(`deleted_at`) USING BTREE,
-    INDEX          `idx_sys_base_menus_deleted_at`(`deleted_at`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+    INDEX `idx_base_menus_deleted_at` (`deleted_at`) USING BTREE,
+    INDEX `idx_sys_base_menus_deleted_at` (`deleted_at`) USING BTREE
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 54
+  CHARACTER SET = utf8
+  COLLATE = utf8_general_ci
+  ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of sys_base_menus
@@ -873,9 +910,12 @@ CREATE TABLE `sys_data_authority_id`
     `sys_authority_authority_id` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL COMMENT '角色id',
     `data_authority_id`          varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL COMMENT '拥有的资源角色id',
     PRIMARY KEY (`sys_authority_authority_id`, `data_authority_id`) USING BTREE,
-    INDEX                        `sys_authority_authority_id`(`sys_authority_authority_id`) USING BTREE,
-    INDEX                        `data_authority_id`(`data_authority_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+    INDEX `sys_authority_authority_id` (`sys_authority_authority_id`) USING BTREE,
+    INDEX `data_authority_id` (`data_authority_id`) USING BTREE
+) ENGINE = InnoDB
+  CHARACTER SET = latin1
+  COLLATE = latin1_swedish_ci
+  ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of sys_data_authority_id
@@ -909,17 +949,21 @@ VALUES ('9528', '9528');
 DROP TABLE IF EXISTS `sys_dictionaries`;
 CREATE TABLE `sys_dictionaries`
 (
-    `id`         int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    `created_at` datetime(0) NULL DEFAULT NULL,
-    `updated_at` datetime(0) NULL DEFAULT NULL,
-    `deleted_at` datetime(0) NULL DEFAULT NULL,
+    `id`         int(10) UNSIGNED                                        NOT NULL AUTO_INCREMENT,
+    `created_at` datetime(0)                                             NULL DEFAULT NULL,
+    `updated_at` datetime(0)                                             NULL DEFAULT NULL,
+    `deleted_at` datetime(0)                                             NULL DEFAULT NULL,
     `name`       varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '字典名（中）',
     `type`       varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '字典名（英）',
-    `status`     tinyint(1) NULL DEFAULT NULL COMMENT '状态',
+    `status`     tinyint(1)                                              NULL DEFAULT NULL COMMENT '状态',
     `desc`       varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '描述',
     PRIMARY KEY (`id`) USING BTREE,
-    INDEX        `idx_sys_dictionaries_deleted_at`(`deleted_at`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+    INDEX `idx_sys_dictionaries_deleted_at` (`deleted_at`) USING BTREE
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 8
+  CHARACTER SET = utf8
+  COLLATE = utf8_general_ci
+  ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of sys_dictionaries
@@ -943,18 +987,22 @@ VALUES (7, '2020-07-05 15:36:48', '2020-07-05 15:36:48', NULL, '数据库bool类
 DROP TABLE IF EXISTS `sys_dictionary_details`;
 CREATE TABLE `sys_dictionary_details`
 (
-    `id`                int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    `created_at`        datetime(0) NULL DEFAULT NULL,
-    `updated_at`        datetime(0) NULL DEFAULT NULL,
-    `deleted_at`        datetime(0) NULL DEFAULT NULL,
+    `id`                int(10) UNSIGNED                                        NOT NULL AUTO_INCREMENT,
+    `created_at`        datetime(0)                                             NULL DEFAULT NULL,
+    `updated_at`        datetime(0)                                             NULL DEFAULT NULL,
+    `deleted_at`        datetime(0)                                             NULL DEFAULT NULL,
     `label`             varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '展示值',
-    `value`             int(11) NULL DEFAULT NULL COMMENT '字典值',
-    `status`            tinyint(1) NULL DEFAULT NULL COMMENT '启用状态',
-    `sort`              int(11) NULL DEFAULT NULL COMMENT '排序标记',
-    `sys_dictionary_id` int(11) NULL DEFAULT NULL COMMENT '关联标记',
+    `value`             int(11)                                                 NULL DEFAULT NULL COMMENT '字典值',
+    `status`            tinyint(1)                                              NULL DEFAULT NULL COMMENT '启用状态',
+    `sort`              int(11)                                                 NULL DEFAULT NULL COMMENT '排序标记',
+    `sys_dictionary_id` int(11)                                                 NULL DEFAULT NULL COMMENT '关联标记',
     PRIMARY KEY (`id`) USING BTREE,
-    INDEX               `idx_sys_dictionary_details_deleted_at`(`deleted_at`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 38 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+    INDEX `idx_sys_dictionary_details_deleted_at` (`deleted_at`) USING BTREE
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 38
+  CHARACTER SET = utf8
+  COLLATE = utf8_general_ci
+  ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of sys_dictionary_details
@@ -1012,23 +1060,27 @@ VALUES (37, '2020-07-05 15:54:24', '2020-07-05 15:54:24', NULL, 'longtext', 9, 1
 DROP TABLE IF EXISTS `sys_operation_records`;
 CREATE TABLE `sys_operation_records`
 (
-    `id`            int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    `created_at`    datetime(0) NULL DEFAULT NULL,
-    `updated_at`    datetime(0) NULL DEFAULT NULL,
-    `deleted_at`    datetime(0) NULL DEFAULT NULL,
+    `id`            int(10) UNSIGNED                                       NOT NULL AUTO_INCREMENT,
+    `created_at`    datetime(0)                                            NULL DEFAULT NULL,
+    `updated_at`    datetime(0)                                            NULL DEFAULT NULL,
+    `deleted_at`    datetime(0)                                            NULL DEFAULT NULL,
     `ip`            varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '请求ip',
     `method`        varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '请求方法',
     `path`          varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '请求路由',
-    `status`        int(11) NULL DEFAULT NULL COMMENT '状态',
-    `latency`       bigint(20) NULL DEFAULT NULL,
+    `status`        int(11)                                                NULL DEFAULT NULL COMMENT '状态',
+    `latency`       bigint(20)                                             NULL DEFAULT NULL,
     `agent`         varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
     `error_message` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
-    `body`          text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL COMMENT '请求Body',
-    `user_id`       int(11) NULL DEFAULT NULL COMMENT '用户id',
-    `resp`          text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL COMMENT '响应Body',
+    `body`          text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin         NULL COMMENT '请求Body',
+    `user_id`       int(11)                                                NULL DEFAULT NULL COMMENT '用户id',
+    `resp`          text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin         NULL COMMENT '响应Body',
     PRIMARY KEY (`id`) USING BTREE,
-    INDEX           `idx_sys_operation_records_deleted_at`(`deleted_at`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 342 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Compact;
+    INDEX `idx_sys_operation_records_deleted_at` (`deleted_at`) USING BTREE
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 342
+  CHARACTER SET = utf8mb4
+  COLLATE = utf8mb4_bin
+  ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for sys_users
@@ -1036,20 +1088,24 @@ CREATE TABLE `sys_operation_records`
 DROP TABLE IF EXISTS `sys_users`;
 CREATE TABLE `sys_users`
 (
-    `id`           int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    `created_at`   timestamp(0) NULL DEFAULT NULL,
-    `updated_at`   timestamp(0) NULL DEFAULT NULL,
-    `deleted_at`   timestamp(0) NULL DEFAULT NULL,
-    `uuid`         varbinary(255) NULL DEFAULT NULL COMMENT 'uuid',
+    `id`           int(10) UNSIGNED                                        NOT NULL AUTO_INCREMENT,
+    `created_at`   timestamp(0)                                            NULL DEFAULT NULL,
+    `updated_at`   timestamp(0)                                            NULL DEFAULT NULL,
+    `deleted_at`   timestamp(0)                                            NULL DEFAULT NULL,
+    `uuid`         varbinary(255)                                          NULL DEFAULT NULL COMMENT 'uuid',
     `nick_name`    varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT 'QMPlusUser' COMMENT '用户昵称',
     `header_img`   varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT 'http://www.henrongyi.top/avatar/lufu.jpg' COMMENT '用户头像',
-    `authority_id` double NULL DEFAULT 888 COMMENT '用户角色',
+    `authority_id` double                                                  NULL DEFAULT 888 COMMENT '用户角色',
     `username`     varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '登录用户名',
     `password`     varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '登录密码',
     PRIMARY KEY (`id`) USING BTREE,
-    INDEX          `idx_users_deleted_at`(`deleted_at`) USING BTREE,
-    INDEX          `idx_sys_users_deleted_at`(`deleted_at`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+    INDEX `idx_users_deleted_at` (`deleted_at`) USING BTREE,
+    INDEX `idx_sys_users_deleted_at` (`deleted_at`) USING BTREE
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 12
+  CHARACTER SET = utf8
+  COLLATE = utf8_general_ci
+  ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of sys_users
@@ -1069,21 +1125,25 @@ VALUES (11, '2019-09-13 17:27:29', '2019-09-13 17:27:29', NULL,
 DROP TABLE IF EXISTS `sys_workflow_step_infos`;
 CREATE TABLE `sys_workflow_step_infos`
 (
-    `id`                int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    `created_at`        timestamp(0) NULL DEFAULT NULL,
-    `updated_at`        timestamp(0) NULL DEFAULT NULL,
-    `deleted_at`        timestamp(0) NULL DEFAULT NULL,
-    `workflow_id`       int(10) UNSIGNED NULL DEFAULT NULL COMMENT '节点id',
-    `is_strat`          tinyint(1) NULL DEFAULT NULL COMMENT '是否是开始节点',
+    `id`                int(10) UNSIGNED                                        NOT NULL AUTO_INCREMENT,
+    `created_at`        timestamp(0)                                            NULL DEFAULT NULL,
+    `updated_at`        timestamp(0)                                            NULL DEFAULT NULL,
+    `deleted_at`        timestamp(0)                                            NULL DEFAULT NULL,
+    `workflow_id`       int(10) UNSIGNED                                        NULL DEFAULT NULL COMMENT '节点id',
+    `is_strat`          tinyint(1)                                              NULL DEFAULT NULL COMMENT '是否是开始节点',
     `step_name`         varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '步骤name',
-    `step_no`           double NULL DEFAULT NULL COMMENT '第几步',
+    `step_no`           double                                                  NULL DEFAULT NULL COMMENT '第几步',
     `step_authority_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '可操作者角色',
-    `is_end`            tinyint(1) NULL DEFAULT NULL COMMENT '是否是结尾',
-    `sys_workflow_id`   int(10) UNSIGNED NULL DEFAULT NULL COMMENT '关联工作流id',
+    `is_end`            tinyint(1)                                              NULL DEFAULT NULL COMMENT '是否是结尾',
+    `sys_workflow_id`   int(10) UNSIGNED                                        NULL DEFAULT NULL COMMENT '关联工作流id',
     PRIMARY KEY (`id`) USING BTREE,
-    INDEX               `idx_workflow_step_infos_deleted_at`(`deleted_at`) USING BTREE,
-    INDEX               `idx_sys_workflow_step_infos_deleted_at`(`deleted_at`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+    INDEX `idx_workflow_step_infos_deleted_at` (`deleted_at`) USING BTREE,
+    INDEX `idx_sys_workflow_step_infos_deleted_at` (`deleted_at`) USING BTREE
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 1
+  CHARACTER SET = utf8
+  COLLATE = utf8_general_ci
+  ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for sys_workflows
@@ -1091,23 +1151,26 @@ CREATE TABLE `sys_workflow_step_infos`
 DROP TABLE IF EXISTS `sys_workflows`;
 CREATE TABLE `sys_workflows`
 (
-    `id`                   int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    `created_at`           datetime(0) NULL DEFAULT NULL,
-    `updated_at`           datetime(0) NULL DEFAULT NULL,
-    `deleted_at`           datetime(0) NULL DEFAULT NULL,
+    `id`                   int(10) UNSIGNED                                        NOT NULL AUTO_INCREMENT,
+    `created_at`           datetime(0)                                             NULL DEFAULT NULL,
+    `updated_at`           datetime(0)                                             NULL DEFAULT NULL,
+    `deleted_at`           datetime(0)                                             NULL DEFAULT NULL,
     `workflow_nick_name`   varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '工作流中文名称',
     `workflow_name`        varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '工作流英文名称',
     `workflow_description` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '工作流描述',
     PRIMARY KEY (`id`) USING BTREE,
-    INDEX                  `idx_sys_workflows_deleted_at`(`deleted_at`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+    INDEX `idx_sys_workflows_deleted_at` (`deleted_at`) USING BTREE
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 1
+  CHARACTER SET = utf8
+  COLLATE = utf8_general_ci
+  ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- View structure for authority_menu
 -- ----------------------------
 DROP VIEW IF EXISTS `authority_menu`;
-CREATE
-ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `authority_menu` AS
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `authority_menu` AS
 select `sys_base_menus`.`id`                              AS `id`,
        `sys_base_menus`.`created_at`                      AS `created_at`,
        `sys_base_menus`.`updated_at`                      AS `updated_at`,
@@ -1126,7 +1189,8 @@ select `sys_base_menus`.`id`                              AS `id`,
        `sys_authority_menus`.`sys_base_menu_id`           AS `menu_id`,
        `sys_base_menus`.`keep_alive`                      AS `keep_alive`,
        `sys_base_menus`.`default_menu`                    AS `default_menu`
-from (`sys_authority_menus` join `sys_base_menus` on ((`sys_authority_menus`.`sys_base_menu_id` = `sys_base_menus`.`id`)));
+from (`sys_authority_menus`
+         join `sys_base_menus` on ((`sys_authority_menus`.`sys_base_menu_id` = `sys_base_menus`.`id`)));
 
 SET
-FOREIGN_KEY_CHECKS = 1;
+    FOREIGN_KEY_CHECKS = 1;

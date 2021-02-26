@@ -99,23 +99,27 @@ VALUES (99, '2020-07-07 15:59:53', '2020-07-07 15:59:53', NULL, NULL,
 DROP TABLE IF EXISTS `sys_operation_records`;
 CREATE TABLE `sys_operation_records`
 (
-    `id`            int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-    `created_at`    datetime(0) NULL DEFAULT NULL,
-    `updated_at`    datetime(0) NULL DEFAULT NULL,
-    `deleted_at`    datetime(0) NULL DEFAULT NULL,
+    `id`            int(10) UNSIGNED                                       NOT NULL AUTO_INCREMENT,
+    `created_at`    datetime(0)                                            NULL DEFAULT NULL,
+    `updated_at`    datetime(0)                                            NULL DEFAULT NULL,
+    `deleted_at`    datetime(0)                                            NULL DEFAULT NULL,
     `ip`            varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '请求ip',
     `method`        varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '请求方法',
     `path`          varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL COMMENT '请求路由',
-    `status`        int(11) NULL DEFAULT NULL COMMENT '状态',
-    `latency`       bigint(20) NULL DEFAULT NULL,
+    `status`        int(11)                                                NULL DEFAULT NULL COMMENT '状态',
+    `latency`       bigint(20)                                             NULL DEFAULT NULL,
     `agent`         varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
     `error_message` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL DEFAULT NULL,
-    `body`          text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL COMMENT '请求Body',
-    `user_id`       int(11) NULL DEFAULT NULL COMMENT '用户id',
-    `resp`          text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NULL COMMENT '响应Body',
+    `body`          text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin         NULL COMMENT '请求Body',
+    `user_id`       int(11)                                                NULL DEFAULT NULL COMMENT '用户id',
+    `resp`          text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin         NULL COMMENT '响应Body',
     PRIMARY KEY (`id`) USING BTREE,
-    INDEX           `idx_sys_operation_records_deleted_at`(`deleted_at`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 342 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_bin ROW_FORMAT = Compact;
+    INDEX `idx_sys_operation_records_deleted_at` (`deleted_at`) USING BTREE
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 342
+  CHARACTER SET = utf8mb4
+  COLLATE = utf8mb4_bin
+  ROW_FORMAT = Compact;
 
 
 

@@ -1,3 +1,3 @@
 module "little-beego"
 
-go 1.15
+  go 1.15
