@@ -18,7 +18,7 @@
 
   <properties>
     <java.version>1.8</java.version>
-    <guava.version>28.2-jre</guava.version>
+    <guava.version>29.0-jre</guava.version>
     <hutool.version>5.3.5</hutool.version>
     <commons-io.version>2.6</commons-io.version>
   </properties>
