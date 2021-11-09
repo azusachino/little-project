@@ -1,15 +1,15 @@
 # Little Project
 
-这里是存放其他项目的仓库(主要是不想每个项目都建一个仓库了)
+主要用于保存学习各种技术时的零散项目
 
-## 学习SpringBatch
+## 学习 SpringBatch
 
 - little-batch
 
-## 学习Netty
+## 学习 Netty
 
 - little-netty
 
-## 学习MQ
+## 学习 MessageQueue
 
 - little-mq
