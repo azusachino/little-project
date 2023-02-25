@@ -31,7 +31,7 @@
     <druid.version>1.1.20</druid.version>
     <fastjson.version>1.2.70</fastjson.version>
     <guava.version>28.2-jre</guava.version>
-    <commons-io.version>2.6</commons-io.version>
+    <commons-io.version>2.7</commons-io.version>
     <commons-fileupload.version>1.4</commons-fileupload.version>
     <ip2region.version>1.7.2</ip2region.version>
     <hutool.version>5.3.5</hutool.version>
